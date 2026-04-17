@@ -17,12 +17,11 @@ const documents = ref<Document[]>([
 
 const selectedDocumentId = ref<number>(1)
 const documentContent = ref<string>('')
+const showSaveMessage = ref(false)
 
 const selectedDocument = computed(() => {
   return documents.value.find((doc) => doc.id === selectedDocumentId.value)
 })
-
-const showSaveMessage = ref(false)
 
 const selectDocument = (id: number) => {
   selectedDocumentId.value = id
@@ -92,11 +91,6 @@ const createNewDocument = () => {
               </div>
             </div>
             <button class="btn btn-success" @click="saveDocument">Save</button>
-          </div>
-
-          <!-- Rich Text Editor Placeholder -->
-          <div class="editor-toolbar">
-            <div class="toolbar-note">Rich text editor will be added here</div>
           </div>
 
           <!-- Textarea for Rich Text Content -->
@@ -322,20 +316,6 @@ const createNewDocument = () => {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.editor-toolbar {
-  padding: 12px;
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  border-bottom: none;
-}
-
-.toolbar-note {
-  font-size: 12px;
-  color: #999;
-  font-style: italic;
 }
 
 .rich-text-area {
