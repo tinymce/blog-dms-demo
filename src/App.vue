@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
+import TinyMCEEditor from "./TinyMCEEditor.vue";
 
 interface Document {
   id: number
@@ -93,16 +94,8 @@ const createNewDocument = () => {
             <button class="btn btn-success" @click="saveDocument">Save</button>
           </div>
 
-          <!-- Textarea for Rich Text Content -->
-          <textarea
-            v-model="documentContent"
-            class="rich-text-area"
-            placeholder="Start typing your document content here... (Replace this textarea with your rich text editor)"
-          ></textarea>
-
-          <!-- Editor Footer -->
-          <div class="editor-footer">
-            <div class="char-count">{{ documentContent.length }} characters</div>
+          <div class="editor-wrapper">
+            <TinyMCEEditor v-model="documentContent"></TinyMCEEditor>
           </div>
         </div>
         <div v-else class="empty-state">
@@ -284,6 +277,7 @@ const createNewDocument = () => {
   height: 100%;
   padding: 20px;
   gap: 12px;
+  min-height: 0;
 }
 
 .document-header {
@@ -316,6 +310,14 @@ const createNewDocument = () => {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.editor-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .rich-text-area {
