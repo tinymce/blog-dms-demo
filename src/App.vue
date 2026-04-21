@@ -282,8 +282,8 @@ const createNewDocument = () => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 30px;
-  gap: 20px;
+  padding: 20px;
+  gap: 12px;
 }
 
 .document-header {
@@ -292,7 +292,7 @@ const createNewDocument = () => {
   align-items: flex-start;
   gap: 20px;
   border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 
 .document-details {
@@ -338,7 +338,7 @@ const createNewDocument = () => {
 .editor-footer {
   display: flex;
   justify-content: flex-end;
-  padding-top: 12px;
+  padding-top: 8px;
   border-top: 1px solid #e0e0e0;
   font-size: 12px;
   color: #999;
