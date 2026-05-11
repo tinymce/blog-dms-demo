@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import Editor from '@tinymce/tinymce-vue'
 
-const tokenProvider = async () => {
-  await fetch('https://demo.api.tiny.cloud/1/unique-tinymce-key/auth/random', { method: 'POST', credentials: 'include' });
-  return { token: await fetch('https://demo.api.tiny.cloud/1/unique-tinymce-key/jwt/tinymceai', { credentials: 'include' }).then(r => r.text()) };
-}
+const tinymceai_token_provider = async () => {
+	await fetch(`https://demo.api.tiny.cloud/1/no-api-key/auth/random`, { method: "POST", credentials: "include" });
+	return await fetch(`https://demo.api.tiny.cloud/1/no-api-key/jwt/tinymceai`, { credentials: "include" })
+	  .then(resp => resp.text())
+	  .then(token => ({ token }))
+  }
+
 </script>
 
 <template>
@@ -19,7 +22,7 @@ const tokenProvider = async () => {
       content_css: 'document',
       height: '100%',
       content_id: 'document-123',
-      tinymceai_token_provider: tokenProvider,
+      tinymceai_token_provider: tinymceai_token_provider,
     }"
   />
 </template>
