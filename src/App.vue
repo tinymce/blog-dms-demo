@@ -284,6 +284,7 @@ const createNewDocument = () => {
   height: 100%;
   padding: 20px;
   gap: 12px;
+  min-height: 0;
 }
 
 .document-header {
@@ -316,6 +317,14 @@ const createNewDocument = () => {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.editor-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .rich-text-area {
@@ -427,3 +436,4 @@ const createNewDocument = () => {
   opacity: 0;
 }
 </style>
+
